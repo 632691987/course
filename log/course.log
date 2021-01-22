@@ -1,0 +1,9 @@
+2017-02-06 05:00:43.116 [main] INFO  c.system.entry.CourseApplication - Starting CourseApplication on vincent with PID 8464 (C:\workspace\project\Course\course\target\classes started by yan in C:\workspace\project\Course\course) 
+2017-02-06 05:00:43.141 [main] INFO  c.system.entry.CourseApplication - The following profiles are active: development 
+2017-02-06 05:01:01.573 [main] WARN  n.s.e.config.CacheConfiguration - Configuration problem for cache cache1: MaxEntriesLocalHeap equal or greater than MaxEntriesLocalDisk. This will result in useless disk storage. 
+2017-02-06 05:01:10.544 [main] INFO  c.system.entry.CourseApplication - Started CourseApplication in 29.246 seconds (JVM running for 31.13) 
+2017-02-06 06:09:21.406 [qtp296121376-29] INFO  course.jms.QueueASender - About to send object message 
+2017-02-06 06:09:21.525 [qtp296121376-29] INFO  course.jms.QueueASender - Object message sent 
+2017-02-06 06:20:11.236 [qtp296121376-31] INFO  course.jms.QueueASender - About to send object message 
+2017-02-06 06:20:11.291 [qtp296121376-31] INFO  course.jms.QueueASender - Object message sent 
+2017-02-06 06:20:11.310 [DefaultMessageListenerContainer-1] INFO  course.service.JMSService - Receive and process message from student: {"messageCode":"setMessageCode","adminName":"setAdminName","maintainField01":"setMaintainField01","maintainField02":"setMaintainField02"} 

@@ -1,0 +1,5 @@
+一对一的意思是说
+
+一个Manager 只能有一个 department, 一个department 只能有一个 Manager
+
+在该例子里面，选择Department 的表有一个外键列

@@ -1,0 +1,24 @@
+1, 单向  @ManyToOne 
+
+
+如  Order 对 customer 的关系
+
+以下代码写在Order.java
+@ManyToOne(fetch=FetchType=LAZY)--->因为此处使用的是左外连接,用fetch属性来修改默认的加载策略
+@JoinColumn(name="customer_id")-->自己的列表名 // 这里其实是定义外键
+public Customer getCustomer(){}
+
+select * from Order left join Customer on order.customer_id = custoemr.id
+
+
+2, 单向  @OneToMany
+
+OneToMany 如 Customer 对 Order 的关系,默认情况下，如果删除1的一段，会把   N端    清空。但可以用cascade 解决问题
+
+以下代码写在Customer.java
+@OneToMany()//默认已经是使用懒加载，用  cascade={CascadeType.REMOVE}
+@JoinColumn(name="cutomer_id")--> 
+public Set<Order> getOrders(){}
+
+
+3, 双向 @OneToMany

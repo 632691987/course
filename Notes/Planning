@@ -1,0 +1,6 @@
+1, 所有 Entity 的增删改查，批量改等等。
+2, Data DSL
+3, JMX 实现enablembeanexport 和  manageroperation
+4, Spring cache
+5, Spring integration
+6, HTTP client

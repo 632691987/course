@@ -1,0 +1,15 @@
+单向 OneToMany
+
+默认是对关联的一方进行懒加载
+
+
+FetchType fetch() default LAZY;
+
+注意：
+单向一对多的意思是说一(Customer)的一端，有对Order 进行引用，但 Order 没有对customer 进行引用。这是从Java的角度去考虑的。
+但是，从 DB 的角度去考虑， TBL_Order 表依旧有Customer 的引用， 并且列明是 customer_id, 单向指向 TBL_Customer 表
+而且 TBL_Customer 表是没有任何 Order 的引用的。
+
+但在删除的时候，可以把多的一端删除。
+
+@OneToMany(cascade={CascadeType.REMOVE})

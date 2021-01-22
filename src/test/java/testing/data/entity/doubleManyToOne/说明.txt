@@ -1,0 +1,36 @@
+双向多对一，跟双向一对多是同样的意思。其实很容易理解，在两边都设置了，那当然是双向的啦
+
+重点是：两边的外键列的列明是必须一致的。
+
+
+Customer.java
+============================================================================================
+@JoinColumn(name="CUSTOMER_ID")//这里依然是外键列的名字
+@OneToMany(cascade={CascadeType.REMOVE})
+private Set<Order> orders;
+
+
+
+Order.java
+============================================================================================
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "CUSTOMER_ID") // 自己这table 的外键列的列名
+public Customer getCustomer() {
+	return customer;
+}
+
+但依然要记得，数据库的表Order 依然是有一个customer_id的引用
+
+建议在 N 的一方维护关联关系，而 1 的一方不维护关联关系
+
+这样会有效的减少 SQL 语句
+
+
+@JoinColumn(name="CUSTOMER_ID")//这里依然是外键列的名字
+@OneToMany(cascade={CascadeType.REMOVE}, mappedBy="customer")
+private Set<Order> orders;
+
+那个mappedBy="customer" 是怎么来的呢？
+那个是 Java 类， Order 里面对Customer 类引用的变量名(private Customer customer;)
+
+此时，用了mappedBy 是不能有@JoinColumn共用的

@@ -1,0 +1,8 @@
+create the keystore:
+keytool -genkey -keystore hornetq.example.keystore -storepass hornetqexample
+
+export the certificate:
+keytool -export -keystore hornetq.example.keystore -file hornetq.cer
+
+create the truststore:
+keytool -import -file hornetq.cer -keystore hornetq.example.truststore -storepass hornetqexample
